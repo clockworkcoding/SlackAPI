@@ -20,7 +20,7 @@
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|netstandard2.0|AnyCPU'">
-    <OutputPath>C:\Users\Max\Source\Repos\BallotBot\BallotBot\SlackAPI\</OutputPath>
+    <OutputPath>C:\Users\yodad\Source\Repos\BallotBot\BallotBot\SlackAPI\</OutputPath>
   </PropertyGroup>
 
 </Project>
