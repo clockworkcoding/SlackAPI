@@ -592,6 +592,25 @@ namespace SlackAPI
             return APIRequestWithTokenAsync<ReactionAddedResponse>(parameters.ToArray());
         }
 
+      
+        public Task<DialogOpenResponse> DialogOpenAsync(
+           string triggerId,
+           Dialog dialog)
+        {
+           List<Tuple<string, string>> parameters = new List<Tuple<string, string>>();
+
+           parameters.Add(new Tuple<string, string>("trigger_id", triggerId));
+    
+           parameters.Add(new Tuple<string, string>("dialog", 
+              JsonConvert.SerializeObject(dialog, 
+                 new JsonSerializerSettings
+                 {
+                    NullValueHandling = NullValueHandling.Ignore
+                 })));
+
+           return APIRequestWithTokenAsync<DialogOpenResponse>(parameters.ToArray());
+        }
+
         public async Task<FileUploadResponse> UploadFileAsync(byte[] fileData, string fileName, string[] channelIds, string title = null, string initialComment = null, bool useAsync = false, string fileType = null)
         {
             Uri target = new Uri(Path.Combine(APIBaseLocation, useAsync ? "files.uploadAsync" : "files.upload"));
